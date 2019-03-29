@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="PL-pl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>kalkulator</title>
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="stylesheet" href="stylesheets/style.css">
+  </head>
+  <body>
+    <header>
+
+    </header>
+    <main class="container">
+      <section class="calculator--section">
+        <div class="row">
+          <div class="col-xl-12 flex-center">
+            <span class="page-header">Kalkulator</span>
+          </div>
+        </div>
+        <div class="row flex-center">
+
+          <div class="col-xl-6">
+            <span class="text-section">Dla klienta</span>
+            <span class="page-header" id="forClientOutput"></span>
+          </div>
+          <div class="col-xl-6">
+            <span class="text-section">Dla Mnie</span>
+            <span class="page-header" id="forMeOutput"></span>
+          </div>
+        </div>
+
+        <div class="row flex-center">
+          <div class="col-xl-12">
+            <input  type="range" id="sliderValue" value="1" min="1" max="12"
+                  oninput="showVal()" /></input>
+          </div>
+        </div>
+        <div class="row flex-center">
+          <span class="page-header" id="value"></span>
+        </div>
+      </section>
+    </main>
+    <script src="js/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,234 @@
+
+/* Fonts */
+@mixin page-header {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size:16px;
+  color: $page-header-color;
+  padding:20px;
+}
+@mixin section-header {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size:16px;
+  color:$section-header-color;
+}
+@mixin section-text {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size:14px;
+  color: $section-text-color;
+}
+.page-header {
+  @include page-header;
+}
+.section-header {
+  @include section-header;
+}
+.section-text {
+  @include section-text;
+}
+/* LINKS */
+@mixin large-link {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size:16px;
+  color: #56819f;
+  text-decoration: none;
+  &:hover {
+    color:#ffa200;
+    cursor:pointer;
+  }
+}
+
+@mixin small-link {
+  @extend .large-link;
+  font-size: 13px;
+  cursor:pointer;
+}
+.large-link {
+  @include large-link;
+}
+.small-link {
+  @include small-link;
+}
+[class*="link"]:hover {
+  color:#ffa200;
+}
+// COROR TABS
+.tab {
+  @include flex-center;
+  width:126px;
+  height:40px;
+  border-radius:4px;
+  font-size:16px;
+
+  &:hover {
+    cursor: pointer;
+    background-color:$light-grey;
+  }
+  &:hover .small-link {
+    color:$white;
+  }
+
+  .fa-circle {
+    padding-right:10px;
+    margin-right:0;
+    margin-left:-5px;
+  }
+}
+
+.tab--hover:hover {
+  background-color:#f3f3f1;
+  cursor: pointer;
+}
+
+// TABLE WITH LINK
+.table--link {
+  width:366px;
+  height:50px;
+  display:flex;
+  align-items: center;
+  &:hover {
+    background-color:$light-grey;
+    cursor: pointer;
+  }
+}
+.table--items-position {
+  margin-left:20px;
+}
+.table--line-header {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  margin-left:20px;
+  margin-right:50px;
+  width:200px;
+  height:50px;
+  display:flex;
+
+}
+
+// BUTTONS
+.btn {
+  width:93px;
+  height:40px;
+  border-radius:3px;
+  color: $white;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  padding:10px;
+  border:0;
+  font-size:18px;
+  box-shadow: none;
+  text-align: center;
+  cursor: pointer;
+
+  .section-text {
+    color:$white;
+  }
+}
+.btn-reset {
+  @extend .btn;
+  width:40px;
+
+  .fa-circle {
+    height:16px;
+    border:0;
+  }
+
+}
+.btn--dark-grey {
+  background-color: $dark-grey;
+}
+.btn--grey {
+  background-color: $grey;
+}
+.btn--dark-orange {
+  background-color: $dark-orange;
+}
+.btn--orange {
+  background-color: $orange;
+}
+.btn-disabled {
+  width:203px;
+  background-color: $light-grey;
+}
+
+
+// LIST WITH ONE DIGIT
+.list--one-digit--container {
+  width:370px;
+  height:40px;
+  border-bottom: 1px solid $light-grey;
+  align-items: center;
+  display: flex;
+}
+.list--header {
+  @include section-header;
+  width:200px;
+  display:flex;
+  justify-content: flex-start;
+  text-align: center;
+}
+.list--digit {
+  @include section-text;
+  width:150px;
+  display:flex;
+  justify-content: flex-end;
+}
+
+// DATE PERIOD
+.date--period--container {
+  width:100%;
+  height:40px;
+  border:1px solid $light-grey;
+  display:flex;
+  align-items: center;
+  padding:0 20px;
+}
+
+.date--period-from {
+  height:28px;
+  box-shadow: 1px 0px 0px 0px $light-grey;
+  padding-right:10px;
+  @include section-text;
+  @include flex-center;
+}
+
+.date--period--date-to {
+  height:28px;
+  margin-left:10px;
+  @include section-text;
+  @include flex-center;
+}
+
+.icon-calendar:before  {
+  color:$dark-grey;
+  padding-left:20px;
+  &:hover {
+    color:$dark-grey;
+  }
+}
+
+// INPUTS
+input[type="date"] {
+  border:0;
+}
+
+// FA-CIRCLE
+.online-icon {
+  background-color:$green;
+  border:1px solid $white;
+  border-radius:50%;
+  width:14px;
+  height:14px;
+}
+.fa-circle-orange {
+  color:$orange;
+}
+.fa-circle-green {
+  color:$green;
+}
+.fa-circle-blue {
+  color:$blue;
+}
