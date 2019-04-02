@@ -24,6 +24,36 @@
     margin-top:200px;
   }
 }
+
+
+
+
+
+// FORMS
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: $white;
+  border: 1px solid $black;
+  padding: 5px 30px 5px 10px;
+  font-size: 14px;
+  display: block;
+  border-radius: 0;
+  background-image: url(https://image.flaticon.com/icons/png/128/118/118738.png);
+  background-size: 15px auto;
+  background-repeat: no-repeat;
+  background-position: right 5px center;
+  margin:20px;
+  width:200px;
+  text-align:center;
+
+  option {
+    font-size:3em;
+  }
+}
+
 input[type=range]{
 
   &:hover {
@@ -50,7 +80,4 @@ input[type=range]{
     border-radius: 1.3px;
     border: 0.2px solid #010101;
   }
-}
-.form--calculator {
-
 }

@@ -24,18 +24,36 @@
 
           <div class="col-xl-6">
             <span class="text-section">Dla klienta</span>
-            <span class="page-header" id="forClientOutput"></span>
+            <span class="page-header flex-center" id="forClientOutput"></span>
           </div>
           <div class="col-xl-6">
             <span class="text-section">Dla Mnie</span>
-            <span class="page-header" id="forMeOutput"></span>
+            <span class="page-header flex-center" id="forMeOutput"></span>
           </div>
         </div>
 
         <div class="row flex-center">
-          <div class="col-xl-12">
+          <div class="col-xl-12 flex-center">
+
+            <select class="section-text" type="select" id="clientChooseProject">
+              <option selected disabled hidden>Wybierz usługe</option>
+              <option value="Graphic" class="section-text">Projekt graficzny</option>
+              <option value="Temp" class="section-text">Szablon</option>
+            </select>
+
+            <select class="section-text" type="select">
+              <option selected disabled hidden>Seo</option>
+              <option class="section-text">Tak</option>
+              <option class="section-text">Nie</option>
+            </select>
+
+            <select class="section-text" type="select">
+              <option selected disabled hidden>Copywriting</option>
+              <option class="section-text">Tak</option>
+              <option class="section-text">Nie</option>
+            </select>
             <input  type="range" id="sliderValue" value="1" min="1" max="12"
-                  oninput="showVal()" /></input>
+                  oninput="showVal();" /></input>
           </div>
         </div>
         <div class="row flex-center">
