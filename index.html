@@ -44,26 +44,26 @@
 
             <!-- COPYWRITING -->
             <label class="section-header" for="clientChooseCW">Copywriting - teksty na stronę</label>
-            <select class="section-text" type="select" id="clientCW" >
+            <select class="section-text" type="select" id="clientCW" onchange="clientOptionCW();" >
               <option selected disabled hidden>Wybierz usługe</option>
-              <option class="section-text">Tak</option>
-              <option class="section-text">Nie</option>
+              <option value="yes" class="section-text">Tak</option>
+              <option value="no" class="section-text">Nie</option>
             </select>
             <span class="section-header">Cena: <span class="section-text--red" id="CWPrice"></span></span>
 
             <!-- RWD -->
             <label class="section-header" for="clientChooseRWD">Responsywność strony</label>
-            <select class="section-text" type="select" id="clientChooseRWD">
+            <select class="section-text" type="select" id="clientChooseRWD" onchange="clientOptionRWD();">
               <option selected disabled hidden>Wybierz usługe</option>
-              <option class="section-text">Tak</option>
-              <option class="section-text">Nie</option>
+              <option value="yes" class="section-text">Tak</option>
+              <option value="no" class="section-text">Nie</option>
             </select>
             <span class="section-header">Cena: <span class="section-text--red" id="RWDPrice"></span></span>
 
             <!-- ILOŚC PODSTRON SLIDER -->
             <label class="section-header" for="sliderValue">Wybierz ilość podstron</label>
             <input  type="range" id="sliderValue" value="1" min="1" max="12"
-                  oninput="showVal();" /></input>
+                 /></input>
           </div>
         </div>
 
@@ -73,11 +73,11 @@
 
         <div class="row flex-center">
           <div class="col-xl-6">
-            <span class="text-section">Dla klienta</span>
+            <span class="section-header">Dla klienta</span>
             <span class="page-header flex-center" id="forClientOutput"></span>
           </div>
-          <div class="col-xl-6">
-            <span class="text-section">Dla Mnie</span>
+          <div class="col-xl-6 flex-center">
+            <span class="section-header flex-center">Dla Mnie</span>
             <span class="page-header flex-center" id="forMeOutput"></span>
           </div>
         </div>
