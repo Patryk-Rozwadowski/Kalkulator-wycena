@@ -22,11 +22,19 @@
 .page-header {
   @include page-header;
 }
+.page-header--red{
+  @extend .page-header;
+  color:$red;
+}
 .section-header {
   @include section-header;
 }
 .section-text {
   @include section-text;
+}
+.section-text--red {
+  @extend .section-text;
+  color:$red;
 }
 /* LINKS */
 @mixin large-link {

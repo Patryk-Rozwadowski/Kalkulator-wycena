@@ -6,9 +6,7 @@
 @import 'variables';
 @import 'responsive';
 
-.container {
-  background-color:$light-grey;
-}
+
 
 .calculator--section {
   .page-header {
@@ -16,12 +14,16 @@
     font-size:3em;
   }
 
+  .section-header {
+    margin-bottom:0;
+    margin-top:30px;
+  }
   .text-section {
     text-align: center;
   }
 
   input[type=range] {
-    margin-top:200px;
+    margin-top:20px;
   }
 }
 
@@ -45,8 +47,8 @@ select {
   background-size: 15px auto;
   background-repeat: no-repeat;
   background-position: right 5px center;
-  margin:20px;
-  width:200px;
+  margin:10px;
+  width:250px;
   text-align:center;
 
   option {
@@ -78,6 +80,5 @@ input[type=range]{
     box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
     background: #3071a9;
     border-radius: 1.3px;
-    border: 0.2px solid #010101;
   }
 }
