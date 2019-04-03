@@ -26,16 +26,16 @@
 
             <!-- PROJEKT GRAFICZNY / SZABLON -->
             <label class="section-header" for="clientChooseProject">Projekt graficzny</label>
-            <select class="section-text" type="select" id="clientChooseProject" onchange="clientOptionProject();">
+            <select class="section-text" type="select" id="clientChooseProject" oninput="clientOptionProject();">
               <option selected disabled hidden>Wybierz usługe</option>
-              <option value="Graphic" class="section-text">Indywidualny projekt graficzny</option>
-              <option value="Temp" class="section-text">Szablon</option>
+              <option value="yes" class="section-text">Indywidualny projekt graficzny</option>
+              <option value="no" class="section-text">Szablon</option>
             </select>
             <span class="section-header">Cena: <span class="section-text--red" id="ProjectPrice"></span></span>
 
             <!-- SEO -->
             <label class="section-header" for="clientChooseSEO">Dostosowanie strony pod SEO</label>
-            <select class="section-text" id="clientChooseSEO" type="select" onchange="clientOptionSEO();">
+            <select class="section-text" id="clientChooseSEO" type="select" oninput="clientOptionSEO();">
               <option selected disabled hidden>Wybierz usługe</option>
               <option value="yes" class="section-text">Dostosowanie pod SEO</option>
               <option value="no" class="section-text">Nie</option>
@@ -44,7 +44,7 @@
 
             <!-- COPYWRITING -->
             <label class="section-header" for="clientChooseCW">Copywriting - teksty na stronę</label>
-            <select class="section-text" type="select" id="clientCW" onchange="clientOptionCW();" >
+            <select class="section-text" type="select" id="clientCW" oninput="clientOptionCW();" >
               <option selected disabled hidden>Wybierz usługe</option>
               <option value="yes" class="section-text">Tak</option>
               <option value="no" class="section-text">Nie</option>
@@ -53,7 +53,7 @@
 
             <!-- RWD -->
             <label class="section-header" for="clientChooseRWD">Responsywność strony</label>
-            <select class="section-text" type="select" id="clientChooseRWD" onchange="clientOptionRWD();">
+            <select class="section-text" type="select" id="clientChooseRWD" oninput="clientOptionRWD();">
               <option selected disabled hidden>Wybierz usługe</option>
               <option value="yes" class="section-text">Tak</option>
               <option value="no" class="section-text">Nie</option>
@@ -63,7 +63,7 @@
             <!-- ILOŚC PODSTRON SLIDER -->
             <label class="section-header" for="sliderValue">Wybierz ilość podstron</label>
             <input  type="range" id="sliderValue" value="1" min="1" max="12"
-                 /></input>
+               /></input>
           </div>
         </div>
 

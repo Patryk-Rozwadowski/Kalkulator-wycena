@@ -1,3 +1,5 @@
+'use strict';
+
 var clientValue = 100;
 var meValue = 200;
 
@@ -17,53 +19,73 @@ var sliderOutput = document.getElementById('value');
 var forClientOutput = document.getElementById('forClientOutput');
 var forMeOutput = document.getElementById('forMeOutput');
 
+var finalPrice = forClientOutput;
 // WYPISANIE WARTOŚCI SUWAKA
-sliderValue.addEventListener('input', function(seoPrice, graphicProject, tempProject) {
+sliderValue.addEventListener('input', function() {
 
   sliderOutput.innerHTML = sliderValue.value;
 
-  clientOptionProject();
-  clientOptionSEO();
-  clientOptionCW();
+  clientOptionProject(sliderValue.value);
 });
 
 // WYBÓR PROJEKT GRAFICZNY / Szablon
 
 function clientOptionProject() {
 
-
-  let projectPrice = graphicProject * sliderValue.value ;
-  let tempProjectPrice = tempProject * sliderValue.value;
-
   // JEŚLI KLIENT WYBRAL PROJEKT GRAFICZNY
-  if (document.getElementById('clientChooseProject').value == "Graphic"){
+  if (document.getElementById('clientChooseProject').value == "yes" && document.getElementById('clientChooseSEO').value == "yes"){
 
-    forClientOutput.innerHTML = projectPrice;
     document.getElementById('ProjectPrice').innerHTML = graphicProject + 'zł';
+    finalPrice.innerHTML = graphicProject + seoPrice;
   }
 
   // JEŚLI NIE WYBRAŁ PROJEKTU GRAFICZNEGO TO WYBRAŁ SZABLON
-  else if (document.getElementById('clientChooseProject').value == "Temp"){
+  else if (document.getElementById('clientChooseProject').value == "no" && document.getElementById('clientChooseSEO').value == "yes"){
 
-    forClientOutput.innerHTML = tempProjectPrice ;
     document.getElementById('ProjectPrice').innerHTML = tempProject + 'zł';
+    finalPrice.innerHTML = tempProject + seoPrice;
   }
+
+  else if (document.getElementById('clientChooseProject').value == "yes"){
+
+      document.getElementById('ProjectPrice').innerHTML = graphicProject + 'zł';
+      finalPrice.innerHTML = graphicProject;
+  }
+
+  else if (document.getElementById('clientChooseProject').value == "no"){
+
+      document.getElementById('ProjectPrice').innerHTML = tempProject + 'zł';
+      finalPrice.innerHTML = tempProject;
+    }
+
 };
 
 // WYBÓR SEO
 function clientOptionSEO() {
 
-  // JEŚLI KLIENT WYBRAL SEO
-  if (document.getElementById('clientChooseSEO').value == "yes"){
-
-    forClientOutput.innerHTML = seoPrice * sliderValue.value;
-    document.getElementById('SEOPrice').innerHTML = seoPrice + 'zł';
+  if (document.getElementById('clientChooseSEO').value == "no" && document.getElementById('clientChooseProject').value == "yes") {
+    document.getElementById('SEOPrice').innerHTML =  '0 zł';
+    finalPrice.innerHTML = graphicProject;
   }
 
   // JEŚLI NIE WYBRAŁ SEO
-  else if (document.getElementById('clientChooseSEO').value == "no"){
+  else if (document.getElementById('clientChooseSEO').value == "no" && document.getElementById('clientChooseProject').value == "no"){
 
+    finalPrice.innerHTML = tempProject;
     document.getElementById('SEOPrice').innerHTML =  '0 zł';
+  }
+
+  // JEŚLI KLIENT WYBRAL SEO
+  else if (document.getElementById('clientChooseSEO').value == "yes" && document.getElementById('clientChooseProject').value == "yes"){
+
+    finalPrice.innerHTML = graphicProject + seoPrice;
+    document.getElementById('SEOPrice').innerHTML = seoPrice + 'zł';
+  }
+
+  else if (document.getElementById('clientChooseSEO').value == "yes" && document.getElementById('clientChooseProject').value == "no"){
+
+    finalPrice.innerHTML = tempProject + seoPrice;
+    document.getElementById('SEOPrice').innerHTML = seoPrice + 'zł';
   }
 }
 
@@ -73,13 +95,21 @@ function clientOptionCW() {
   // JEŚLI KLIENT WYBRAL COPYWRITING
   if (document.getElementById('clientCW').value == "yes"){
 
-    forClientOutput.innerHTML = copyWritingPrice * sliderValue.value;
+
+    finalPrice.innerHTML = graphicProject + copyWritingPrice + seoPrice;
     document.getElementById('CWPrice').innerHTML = copyWritingPrice + 'zł';
   }
 
   // JEŚLI NIE WYBRAŁ COPYWRITING
   else if (document.getElementById('clientCW').value == "no"){
 
+    finalPrice.innerHTML = graphicProject + 0;
+    document.getElementById('CWPrice').innerHTML =  '0 zł';
+  }
+
+  else if (document.getElementById('clientCW').value == "no" && document.getElementById('clientChooseSEO').value == "yes"){
+
+    finalPrice.innerHTML = graphicProject + seoPrice;
     document.getElementById('CWPrice').innerHTML =  '0 zł';
   }
 }
@@ -90,7 +120,7 @@ function clientOptionRWD() {
   // JEŚLI KLIENT WYBRAL RWD
   if (document.getElementById('clientChooseRWD').value == "yes"){
 
-    forClientOutput.innerHTML = rwdPrice * sliderValue.value;
+    //forClientOutput.innerHTML = rwdPrice * sliderValue.value;
     document.getElementById('RWDPrice').innerHTML = rwdPrice + 'zł';
   }
 
