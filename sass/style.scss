@@ -28,9 +28,16 @@
   }
 }
 
+.summary__button {
 
+}
 
-
+.price-output {
+  display:none;
+}
+.price-output.show {
+  display:block;
+}
 
 // FORMS
 
