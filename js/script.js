@@ -23,14 +23,14 @@ var forMeOutput = document.getElementById('forMeOutput');
 
 
 $(function () {
-    var fields = $('#form1 :input').change(calculate);
+    var fields = $('#pricing :input').change(calculate);
 
     function calculate() {
         var price = 0;
         fields.each(function () {
             price += +$(this).val();
         })
-        $('#forClientOutput').html(price.toFixed(2));
+        $('#forClientOutput').html(price);
     }
 })
 
