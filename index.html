@@ -24,12 +24,12 @@
         <div class="row flex-center">
           <div class="col-xl-12 flex-center">
 
-            <form id="pricing" method="post" action="">
+            <form id="pricing" class="col-xl-12 flex-center" method="post" action="">
               <!-- PROJEKT GRAFICZNY / SZABLON -->
               <div class="row">
                 <div class="col-xl-12">
                   <label class="section-header" for="clientChooseProject">Projekt graficzny</label>
-                  <select class="section-text" id="clientChooseProject" oninput="clientOptionProject();">
+                  <select class="section-text" id="clientChooseProject" oninput="calc();">
                     <option value="0" selected  hidden>Wybierz usługe</option>
                     <option value="300" class="section-text">Indywidualny projekt graficzny</option>
                     <option value="100" class="section-text">Szablon</option>
@@ -42,7 +42,7 @@
               <div class="row">
                 <div class="col-xl-12">
                   <label class="section-header" for="clientChooseSEO">Dostosowanie strony pod SEO</label>
-                  <select class="section-text" id="clientChooseSEO" oninput="clientOptionSEO();">
+                  <select class="section-text" id="clientChooseSEO" oninput="calc();">
                     <option value="0" selected  hidden>Wybierz usługe</option>
                     <option value="500" class="section-text">Dostosowanie pod SEO</option>
                     <option value="0" class="section-text">Nie</option>
@@ -55,7 +55,7 @@
               <div class="row">
                 <div class="col-xl-12">
                   <label class="section-header" for="clientChooseCW">Copywriting - teksty na stronę</label>
-                  <select class="section-text"  id="clientCW" oninput="clientOptionCW();">
+                  <select class="section-text"  id="clientCW" oninput="calc();">
                     <option value="0" selected  hidden>Wybierz usługe</option>
                     <option value="600" class="section-text">Tak</option>
                     <option value="0" class="section-text">Nie</option>
@@ -68,7 +68,7 @@
               <div class="row">
                 <div class="col-xl-12">
                   <label class="section-header" for="clientChooseRWD">Responsywność strony</label>
-                  <select class="section-text"  id="clientChooseRWD" oninput="clientOptionRWD();">
+                  <select class="section-text"  id="clientChooseRWD" oninput="calc();">
                     <option value="0" selected  hidden>Wybierz usługe</option>
                     <option value="300" class="section-text">Tak</option>
                     <option value="0" class="section-text">Nie</option>
@@ -76,7 +76,27 @@
                   <span class="section-header">Cena: <span class="section-text--red" id="RWDPrice"></span></span>
                 </div>
               </div>
-                </form>
+
+              <div class="row">
+                <div class="col-xl-12">
+                  <h2 class="section-header">Dodatkowe opcje</h2>
+                </div>
+              </div>
+
+              <div class="checkbox-options flex-center">
+                <div class="row">
+                  <div class="col-xl-6">
+                    <label class="section-text"><input value="11" type="checkbox">Wielojęzyczność</label>
+                  </div>
+                  <div class="col-xl-6">
+                    <label class="section-text"><input value="22" type="checkbox">Logo</label>
+                  </div>
+                  <div class="col-xl-6">
+                    <label class="section-text"><input value="33" type="checkbox">Szkolenie indywidualne</label>
+                  </div>
+                </div>
+              </div>
+            </form>
 
             <!-- ILOŚC PODSTRON SLIDER -->
             <label class="section-header" for="sliderValue">Wybierz ilość podstron</label>
@@ -84,9 +104,9 @@
               value="1"
               min="1"
               max="12"
-              oninput="sliderValueOutput();"
+              oninput="calc();"
               />
-            <span id="value"></span>
+            <span class="section-text" id="value"></span>
           </div>
         </div>
 
@@ -103,7 +123,10 @@
 
       </section>
     </main>
-    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script
+    			  src="https://code.jquery.com/jquery-2.2.4.js"
+    			  integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+    			  crossorigin="anonymous"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script src="js/script.js"></script>
 

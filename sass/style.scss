@@ -27,16 +27,17 @@
     margin-top:20px;
   }
 }
-
-.summary__button {
-
-}
-
 .price-output {
   display:none;
 }
 .price-output.show {
   display:block;
+}
+
+.checkbox-options {
+  padding:50px;
+  display:flex;
+  align-content: center;
 }
 
 // FORMS

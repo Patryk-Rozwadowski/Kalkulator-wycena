@@ -352,6 +352,8 @@ input[type="date"] { border: 0; }
 
 .price-output.show { display: block; }
 
+.checkbox-options { padding: 50px; display: -ms-flexbox; display: flex; -ms-flex-line-pack: center; align-content: center; }
+
 select { -webkit-appearance: none; -moz-appearance: none; appearance: none; background-color: #fff; border: 1px solid #191919; padding: 5px 30px 5px 10px; font-size: 14px; display: block; border-radius: 0; background-image: url(https://image.flaticon.com/icons/png/128/118/118738.png); background-size: 15px auto; background-repeat: no-repeat; background-position: right 5px center; margin: 10px; width: 250px; text-align: center; }
 
 select option { font-size: 3em; }
