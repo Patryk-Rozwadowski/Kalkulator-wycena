@@ -9,7 +9,17 @@ var forClientOutput = document.getElementById('forClientOutput');
 function calc() {
     var fields = $('select').change(calculate);
     var checkbox = $('input:checkbox').change(calculate)
+    var price = 0;
+    var selectvalue = 0;
+    var checkboxsum = 0;
+    var basic = 700;
 
+    var sliderValue = document.getElementById('sliderValue').value;
+    var sliderOutput = document.getElementById('value');
+
+      sliderOutput.innerHTML = sliderValue ;
+
+      calculate()
 
     function calculate() {
       var price = 0;
@@ -37,22 +47,9 @@ function calc() {
             $('#forClientOutput').html(parseInt(basic + (price * sliderValue)) + 'zł');
         })
       }
+      
     }
 
-function sliderValueOutput() {
-  var sliderValue = document.getElementById('sliderValue').value;
-  var sliderOutput = document.getElementById('value');
-
-    sliderOutput.innerHTML = sliderValue;
-}
-document.getElementById('sliderValue').addEventListener('click', function calc() {
-
-  var price = 0;
-  var basic = 700;
-
-  forClientOutput.innerHTML = parseInt(((price + basic) * this.value) ) + 'zł'
-  //$('#forClientOutput').html(parseInt(((price + basic) * sliderValue) ) + 'zł');
-})
 
 function clientOptionProject() {
 
