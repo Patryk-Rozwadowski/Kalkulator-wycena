@@ -1,169 +1,71 @@
-
-
-var clientValue = 100;
-var meValue = 200;
-
-//CENY ZA USŁUGI
-var graphicProject = 300;
-var tempProject = 100;
-
-var seoPrice = 3000;
-var copyWritingPrice = 500;
-var rwdPrice = 1000;
-
-// WARTOŚC SUWAKA
-var sliderValue = document.getElementById('sliderValue');
+'use strict'
+var sliderValue = document.getElementById('sliderValue').value;
 var sliderOutput = document.getElementById('value');
 
-// OUTPUTY DLA WARTOŚCI KLIENTA I DLA MNIE
+
 var forMeOutput = document.getElementById('forMeOutput');
-
-// WYPISANIE WARTOŚCI SUWAKA
-
-
-
-$(function () {
+var forClientOutput = document.getElementById('forClientOutput');
+$(function calc() {
     var fields = $('#pricing :input').change(calculate);
+
 
     function calculate() {
         var price = 0;
+        var basic = 700;
+        var sliderValue = $('#sliderValue').val();
+
         fields.each(function () {
             price += +$(this).val();
+
         })
-        $('#forClientOutput').html(price);
+
+        $('#forClientOutput').html(parseInt(((price + basic) * sliderValue) ) + 'zł');
     }
 })
 
+function sliderValueOutput() {
+  var sliderValue = document.getElementById('sliderValue').value;
+  var sliderOutput = document.getElementById('value');
 
-
-/*
-function final() {
-
-  var e = document.getElementById('clientChooseProject');
-  var selected = e.options[e.selectedIndex].value;
-
-  var total = 0;
-  var totalseo = 0;
-
-        selected = document.getElementById('clientChooseProject').selectedOptions
-        l = selected.length;
-    for (var i = 0; i < l; i++) {
-       total = parseInt(selected[i].value);
-  }
-
-  selectedseo = document.getElementById('clientChooseSEO').selectedOptions
-    w = selectedseo.length;
-    for (var w = 0; i < w; w++) {
-    totalseo = parseInt(selected[w].value);
-  }
-  finalPrice.innerHTML = parseInt(total + totalseo);
+    sliderOutput.innerHTML = sliderValue;
 }
+document.getElementById('sliderValue').addEventListener('click', function calc() {
 
-// WYBÓR PROJEKT GRAFICZNY / Szablon
+  var price = 0;
+  var basic = 700;
 
-function clientOptionProject(selected) {
+  forClientOutput.innerHTML = parseInt(((price + basic) * this.value) ) + 'zł'
+  //$('#forClientOutput').html(parseInt(((price + basic) * sliderValue) ) + 'zł');
+})
+function clientOptionProject() {
 
-  var e = document.getElementById('clientChooseProject');
-  var selected = e.options[e.selectedIndex].value;
+  let e = document.getElementById('clientChooseProject');
+  let selected = e.options[e.selectedIndex].value;
 
-  if (selected == "300"){
-
-    document.getElementById('ProjectPrice').innerHTML =  selected + 'zł';
-
-  }
-
-  else if (selected == "100"){
-      document.getElementById('ProjectPrice').innerHTML = selected + 'zł';
-
-    }
-    return selected;
+  document.getElementById('ProjectPrice').innerHTML =  selected + 'zł';
 };
 
-// WYBÓR SEO
-function clientOptionSEO(selectedseo) {
 
-  var seo = document.getElementById('clientChooseSEO');
-  var selectedseo = seo.options[seo.selectedIndex].value;
+function clientOptionSEO() {
 
-  if (selectedseo == "500"){
+  let e = document.getElementById('clientChooseSEO');
+  let selected = e.options[e.selectedIndex].value;
 
-      document.getElementById('SEOPrice').innerHTML =  selectedseo + 'zł';
-  }
-
-  else if (selectedseo == "0"){
-
-      document.getElementById('SEOPrice').innerHTML = selectedseo + 'zł';
-    }
-      return selected + selectedseo;
+  document.getElementById('SEOPrice').innerHTML =  selected + 'zł';
 };
 
-// WYBÓR COPYWRITING
-function clientOptionCW(selectedseo, selected) {
+function clientOptionCW() {
 
+  let e = document.getElementById('clientCW');
+  let selected = e.options[e.selectedIndex].value;
 
-  if (document.getElementById('clientCW').value == "no" && document.getElementById('clientChooseProject').value == "yes" && document.getElementById('clientChooseSEO').value == "yes"){
+  document.getElementById('CWPrice').innerHTML =  selected + 'zł';
+};
 
-    finalPrice.innerHTML = graphicProject + seoPrice;
-    document.getElementById('CWPrice').innerHTML =  '0 zł';
-  }
-
-  else if (document.getElementById('clientCW').value == "yes" && document.getElementById('clientChooseProject').value == "yes" && document.getElementById('clientChooseSEO').value == "yes"){
-
-    finalPrice.innerHTML = graphicProject + copyWritingPrice + seoPrice;
-    document.getElementById('CWPrice').innerHTML = copyWritingPrice + 'zł';
-  }
-
-  else if (document.getElementById('clientCW').value == "yes" && document.getElementById('clientChooseProject').value == "yes" && document.getElementById('clientChooseSEO').value == "no"){
-
-    finalPrice.innerHTML = graphicProject + copyWritingPrice;
-    document.getElementById('CWPrice').innerHTML = copyWritingPrice + 'zł';
-  }
-
-  else if (document.getElementById('clientCW').value == "no" && document.getElementById('clientChooseProject').value == "no" && document.getElementById('clientChooseSEO').value == "yes"){
-
-    finalPrice.innerHTML = tempProject + seoPrice;
-    document.getElementById('CWPrice').innerHTML =  '0 zł';
-  }
-
-  else if (document.getElementById('clientCW').value == "yes" && document.getElementById('clientChooseProject').value == "no" && document.getElementById('clientChooseSEO').value == "yes"){
-
-    finalPrice.innerHTML = tempProject + copyWritingPrice;
-    document.getElementById('CWPrice').innerHTML = copyWritingPrice + 'zł';
-  }
-
-  else if (document.getElementById('clientCW').value == "yes" && document.getElementById('clientChooseProject').value == "no" && document.getElementById('clientChooseSEO').value == "no"){
-
-    finalPrice.innerHTML = tempProject + copyWritingPrice;
-    document.getElementById('CWPrice').innerHTML = copyWritingPrice + 'zł';
-  }
-  else if (document.getElementById('clientCW').value == "no" && document.getElementById('clientChooseProject').value == "yes" && document.getElementById('clientChooseSEO').value == "no") {
-
-    finalPrice.innerHTML = graphicProject;
-    document.getElementById('CWPrice').innerHTML = '0 zł';
-  }
-
-  else if (document.getElementById('clientCW').value == "yes") {
-
-    finalPrice.innerHTML = copyWritingPrice;
-    document.getElementById('CWPrice').innerHTML = copyWritingPrice + 'zł';
-  }
-
-}
-
-// WYBÓR RWD
 function clientOptionRWD() {
 
-  // JEŚLI KLIENT WYBRAL RWD
-  if (document.getElementById('clientChooseRWD').value == "yes"){
+  let e = document.getElementById('clientChooseRWD');
+  let selected = e.options[e.selectedIndex].value;
 
-    //forClientOutput.innerHTML = rwdPrice * sliderValue.value;
-    document.getElementById('RWDPrice').innerHTML = rwdPrice + 'zł';
-  }
-
-  // JEŚLI NIE WYBRAŁ RWD
-  else if (document.getElementById('clientChooseRWD').value == "no"){
-
-    document.getElementById('RWDPrice').innerHTML =  '0 zł';
-  }
+  document.getElementById('RWDPrice').innerHTML =  selected + 'zł';
 }
-*/

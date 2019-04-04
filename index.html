@@ -24,48 +24,69 @@
         <div class="row flex-center">
           <div class="col-xl-12 flex-center">
 
-            <!-- PROJEKT GRAFICZNY / SZABLON -->
             <form id="pricing" method="post" action="">
-              <label class="section-header" for="clientChooseProject">Projekt graficzny</label>
-              <select name=select1 class="section-text">
-                <option value="0" selected  hidden>Wybierz usługe</option>
-                <option value="300" class="section-text">Indywidualny projekt graficzny</option>
-                <option value="100" class="section-text">Szablon</option>
-              </select>
-              <span class="section-header">Cena: <span class="section-text--red" id="ProjectPrice"></span></span>
+              <!-- PROJEKT GRAFICZNY / SZABLON -->
+              <div class="row">
+                <div class="col-xl-12">
+                  <label class="section-header" for="clientChooseProject">Projekt graficzny</label>
+                  <select class="section-text" id="clientChooseProject" oninput="clientOptionProject();">
+                    <option value="0" selected  hidden>Wybierz usługe</option>
+                    <option value="300" class="section-text">Indywidualny projekt graficzny</option>
+                    <option value="100" class="section-text">Szablon</option>
+                  </select>
+                  <span class="section-header">Cena: <span class="section-text--red" id="ProjectPrice"></span></span>
+                </div>
+              </div>
 
               <!-- SEO -->
-              <label class="section-header" for="clientChooseSEO">Dostosowanie strony pod SEO</label>
-              <select name=select2 class="section-text" id="clientChooseSEO" >
-                <option value="0" selected  hidden>Wybierz usługe</option>
-                <option value="500" class="section-text">Dostosowanie pod SEO</option>
-                <option value="0" class="section-text">Nie</option>
-              </select>
-              <span class="section-header">Cena: <span class="section-text--red" id="SEOPrice"></span></span>
+              <div class="row">
+                <div class="col-xl-12">
+                  <label class="section-header" for="clientChooseSEO">Dostosowanie strony pod SEO</label>
+                  <select class="section-text" id="clientChooseSEO" oninput="clientOptionSEO();">
+                    <option value="0" selected  hidden>Wybierz usługe</option>
+                    <option value="500" class="section-text">Dostosowanie pod SEO</option>
+                    <option value="0" class="section-text">Nie</option>
+                  </select>
+                  <span class="section-header">Cena: <span class="section-text--red" id="SEOPrice"></span></span>
+                </div>
+              </div>
 
               <!-- COPYWRITING -->
-              <label class="section-header" for="clientChooseCW">Copywriting - teksty na stronę</label>
-              <select name=select3 class="section-text"  id="clientCW">
-                <option value="0" selected  hidden>Wybierz usługe</option>
-                <option value="600" class="section-text">Tak</option>
-                <option value="0" class="section-text">Nie</option>
-              </select>
-              <span class="section-header">Cena: <span class="section-text--red" id="CWPrice"></span></span>
+              <div class="row">
+                <div class="col-xl-12">
+                  <label class="section-header" for="clientChooseCW">Copywriting - teksty na stronę</label>
+                  <select class="section-text"  id="clientCW" oninput="clientOptionCW();">
+                    <option value="0" selected  hidden>Wybierz usługe</option>
+                    <option value="600" class="section-text">Tak</option>
+                    <option value="0" class="section-text">Nie</option>
+                  </select>
+                  <span class="section-header">Cena: <span class="section-text--red" id="CWPrice"></span></span>
+                </div>
+              </div>
 
               <!-- RWD -->
-              <label class="section-header" for="clientChooseRWD">Responsywność strony</label>
-              <select name=select4 class="section-text"  id="clientChooseRWD">
-                <option value="0" selected  hidden>Wybierz usługe</option>
-                <option value="300" class="section-text">Tak</option>
-                <option value="0" class="section-text">Nie</option>
-              </select>
-              <span class="section-header">Cena: <span class="section-text--red" id="RWDPrice"></span></span>
-            </form>
+              <div class="row">
+                <div class="col-xl-12">
+                  <label class="section-header" for="clientChooseRWD">Responsywność strony</label>
+                  <select class="section-text"  id="clientChooseRWD" oninput="clientOptionRWD();">
+                    <option value="0" selected  hidden>Wybierz usługe</option>
+                    <option value="300" class="section-text">Tak</option>
+                    <option value="0" class="section-text">Nie</option>
+                  </select>
+                  <span class="section-header">Cena: <span class="section-text--red" id="RWDPrice"></span></span>
+                </div>
+              </div>
+                </form>
 
             <!-- ILOŚC PODSTRON SLIDER -->
             <label class="section-header" for="sliderValue">Wybierz ilość podstron</label>
-            <input  type="range" id="sliderValue" value="1" min="1" max="12"
-               /></input>
+            <input  type="range" id="sliderValue"
+              value="1"
+              min="1"
+              max="12"
+              oninput="sliderValueOutput();"
+              />
+            <span id="value"></span>
           </div>
         </div>
 
@@ -74,19 +95,16 @@
         </div>
 
         <div class="row flex-center">
-          <div class="col-xl-6">
-            <span class="section-header">Dla klienta</span>
+          <div class="col-xl-12 flex-center">
+            <span class="section-header">Twoja cena</span>
             <span class="page-header flex-center" id="forClientOutput"></span>
-          </div>
-          <div class="col-xl-6 flex-center">
-            <span class="section-header flex-center">Dla Mnie</span>
-            <span class="page-header flex-center" id="forMeOutput"></span>
           </div>
         </div>
 
       </section>
     </main>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script src="js/script.js"></script>
 
   </body>
