@@ -1,55 +1,42 @@
 'use strict'
-var sliderValue = document.getElementById('sliderValue').value;
-var sliderOutput = document.getElementById('value');
-
 
 var forMeOutput = document.getElementById('forMeOutput');
 var forClientOutput = document.getElementById('forClientOutput');
 
+calc();
+
 function calc() {
+  var sliderValue = document.getElementById('sliderValue').value;
+  var sliderOutput = document.getElementById('value');
+
     var fields = $('select').change(calculate);
     var checkbox = $('input:checkbox').change(calculate)
-    var price = 0;
-    var selectvalue = 0;
-    var checkboxsum = 0;
-    var basic = 700;
+      var basic = 700
 
-    var sliderValue = document.getElementById('sliderValue').value;
-    var sliderOutput = document.getElementById('value');
+      sliderOutput.innerHTML = sliderValue.value ;
 
-      sliderOutput.innerHTML = sliderValue ;
-
-      calculate()
+      calculate();
 
     function calculate() {
       var price = 0;
-      var selectvalue = 0;
-      var checkboxsum = 0;
-      var basic = 700;
+      var selectvalue = 0;;
+      var basic = 700
 
-          $('input:checkbox').change(function(){
+        $('input:checkbox:checked').each(function(){
 
-            $('input:checkbox:checked').each(function(){
-
-              price += +$(this).val();
-              $('#forClientOutput').html(parseInt(basic + checkboxsum + (price * sliderValue)) + 'zł');
-
-            });
+          selectvalue += +$(this).val();
+          $('#forClientOutput').html(parseInt(basic + selectvalue + price) + 'zł');
         })
 
         fields.each(function () {
-
-        price +=  +$(this).val();
-
-          if($("input:checkbox").is(':checked'))
-            $('#forClientOutput').html(parseInt(basic + checkboxsum + (price * sliderValue)) + 'zł');
-          else
-            $('#forClientOutput').html(parseInt(basic + (price * sliderValue)) + 'zł');
+          var sliderValue = document.getElementById('sliderValue');
+          var sliderOutput = document.getElementById('value');
+          sliderOutput.innerHTML = sliderValue.value ;
+          price +=  +$(this).val();
+          $('#forClientOutput').html(parseInt(basic + price * sliderValue.value + selectvalue) + 'zł');
         })
       }
-      
-    }
-
+}
 
 function clientOptionProject() {
 
